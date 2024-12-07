@@ -13,13 +13,12 @@ export default function Home() {
     tip: 10,
     person: 1,
   });
+  const Totaltip = (billdata.bill * (billdata.tip / 100)).toFixed(2);
+  const TipPerperson = (parseFloat(Totaltip) / billdata.person).toFixed(2);
+  const Totalbill = (billdata.bill + parseFloat(Totaltip)).toFixed(2);
+  const TotalPerperson = (parseFloat(Totalbill) / billdata.person).toFixed(2);
 
-  let Totaltip = (billdata.bill * (billdata.tip / 100)).toFixed(2);
-  let TipPerperson = (parseFloat(Totaltip) / billdata.person).toFixed(2);
-  let Totalbill = (billdata.bill + parseFloat(Totaltip)).toFixed(2);
-  let TotalPerperson = (parseFloat(Totalbill) / billdata.person).toFixed(2);
-
-  const tipevent = (e: any) => {
+  const tipevent = (e: number) => {
     if (e == 1 && billdata.tip < 100) {
       setBill((value) => ({ ...value, tip: value.tip + 1 }));
     } else if (e == 2 && billdata.tip > 10) {
