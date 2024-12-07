@@ -26,7 +26,7 @@ export default function Home() {
     }
   };
 
-  const personevent = (e: any) => {
+  const personevent = (e: number) => {
     if (e == 1) {
       setBill((value) => ({ ...value, person: value.person + 1 }));
     } else if (e == 2 && billdata.person > 1) {
